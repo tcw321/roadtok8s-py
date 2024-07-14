@@ -16,10 +16,10 @@ jobs:
            eval "$(ssh-agent -s)"
            ssh-add ~/.ssh/id_rsa
       - name: Set Strict Host Key Checking
-          run: |
-            echo "Host *" > ~/.ssh/config
-            echo "  StrictHostKeyChecking no" >> ~/.ssh/config
-            chmod 600 ~/.ssh/config
+        run: |
+           echo "Host *" > ~/.ssh/config
+           echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+           chmod 600 ~/.ssh/config
       - name: Install NGINX
         run: |
           export MY_HOST="${{ secrets.AKAMAI_INSTANCE_IP_ADDRESS }}"
