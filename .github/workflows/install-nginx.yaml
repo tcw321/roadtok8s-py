@@ -13,6 +13,8 @@ jobs:
            mkdir -p ~/.ssh/
            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
            chmod 600 ~/.ssh/id_rsa
+           eval "$(ssh-agent -s)"
+           ssh-add ~/.ssh/id_rsa
       - name: Set Strict Host Key Checking
         run: echo "StrictHostKeyChecking=no" > ~/.ssh/Configure
       - name: Install NGINX
