@@ -18,5 +18,5 @@ jobs:
       - name: Install NGINX
         run: |
           export MY_HOST="${{ secrets.AKAMAI_INSTANCE_IP_ADDRESS }}"
-          ssh root@MY_HOST sudo apt update
-          ssh root@MY_HOST sudo apt install nginx -y
+          ssh root@${MY_HOST} sudo apt update
+          ssh root@${MY_HOST} sudo apt install nginx -y
