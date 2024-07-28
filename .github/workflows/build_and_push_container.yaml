@@ -20,6 +20,6 @@ jobs:
             -t "$DH_USER/$REPO:latest" \
             -t "$DH_USER$REPO:${{ github.sh }}" \
             .
-     -name: Push the container images
-      run: | 
+     - name: Push the container images
+      run: |
          docker push "$DH_USER/$REPO" --all-tags
