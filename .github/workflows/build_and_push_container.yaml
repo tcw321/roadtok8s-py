@@ -18,8 +18,7 @@ jobs:
        run: |
          docker build -f Dockerfile \
             -t "$DH_USER/$REPO:latest" \
-            -t "$DH_USER$REPO:${{ github.sh }}" \
-            .
+            -t "$DH_USER$REPO:${{ github.sha }}" .
      - name: Push the container images
-      run: |
+       run: |
          docker push "$DH_USER/$REPO" --all-tags
