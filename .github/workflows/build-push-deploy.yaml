@@ -19,7 +19,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: $glossterm::[ secrets.DOCKERHUB_USERNAME ]
-        password: $glossterm::[ secrets.DOCKERHUB_TOKEN ]
+        password: $glossterm::[ secrets.DOCKERHUB_PASSWORD ]
     - name: Build the Docker image
       run: |
         docker build -f Dockerfile \
