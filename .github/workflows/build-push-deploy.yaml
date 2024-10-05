@@ -10,7 +10,7 @@ jobs:
       DH_USER: ${{ secrets.DOCKERHUB_USERNAME }}
       REPO: ${{ secrets.DOCKERHUB_REPO }}
       SSH_OPTS: '-o StrictHostKeyChecking=no'
-      REMOTE: 'root@${{ secrets.AKAMAI_INSTANCE_IP_ADDRESS }}'
+      REMOTE: 'root@${{ secrets.RK8S_DOCKER_IP }}'
       REMOTE_APP_DIR: '/opt/app'
     steps:
     - name: Checkout code
@@ -32,7 +32,7 @@ jobs:
     - name: Implement the Private SSH Key
       run: |
         mkdir -p ~/.ssh/
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        echo "${{ secrets.DOCKER_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
     - name: Ensure Docker and Docker Compose is installed on VM
       run: |
